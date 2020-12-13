@@ -5,7 +5,7 @@ let newNoteBtn;
 let noteList;
 
 
-if (window.location.pathname === '/notes') { //change to notes.html?
+if (window.location.pathname === '/notes') { 
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('#save-note');
@@ -44,7 +44,7 @@ const saveNote = (note) =>
     body: JSON.stringify(note),
   });
 
-const deleteNote = (id) =>   //need to add delete functionality, apis etc.
+const deleteNote = (id) =>   
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
     headers: {
@@ -59,9 +59,8 @@ const renderActiveNote = () => {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
-    noteText.value = activeNote.text; // this should be .text instead of .title?
+    noteText.value = activeNote.text; 
   } else {
-    //do I need to add 'false', I thought this was assumed?
     noteTitle.value = '';
     noteText.value = '';
   }
